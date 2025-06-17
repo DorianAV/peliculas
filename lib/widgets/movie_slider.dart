@@ -25,7 +25,6 @@ class _MovieSliderState extends State<MovieSlider> {
       if (scrollController.position.pixels >= scrollController.position.maxScrollExtent - 500) {
         // Trigger the loading of more movies
         // You can call a method from your provider or state management solution here
-        print('Load more movies');
         widget.onNextPage();
       }
     });  
@@ -74,7 +73,7 @@ class _MovieSliderState extends State<MovieSlider> {
               controller: scrollController,
               scrollDirection: Axis.horizontal,
               itemCount: widget.movies.length,
-              itemBuilder: (_, int index) => _MoviePoster(widget.movies[index], '${widget.title}-${index}-${widget.movies[index].id}' ),
+              itemBuilder: (_, int index) => _MoviePoster(widget.movies[index], '${widget.title}-$index-${widget.movies[index].id}' ),
             ),
           ),
         ],
